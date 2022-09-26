@@ -7,14 +7,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/collectors" do 
-    "collectors list page"
+    collectors = Collector.all
+    collectors.to_json
   end
 
   get "/collectors/:id" do
-    "collector page with records list"
+    collector = Collector.find_by(id: params[:id])
+    if collector
+      collector.to_json(include: :records)
+    else 
+      "404: Page not found"
   end
-
-  
-
 
 end
