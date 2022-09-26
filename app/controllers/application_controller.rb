@@ -6,4 +6,15 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/collectors" do
+    "collectors list page"
+  end
+
+  get "/collectors/:id" do
+    "collector page with records list"
+  end
+
+  
+
+
 end
