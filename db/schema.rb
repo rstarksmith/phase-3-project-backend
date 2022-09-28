@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_26_155758) do
+ActiveRecord::Schema.define(version: 2022_09_28_164647) do
 
   create_table "collectors", force: :cascade do |t|
     t.string "name"
@@ -25,8 +25,7 @@ ActiveRecord::Schema.define(version: 2022_09_26_155758) do
     t.string "label"
     t.integer "year"
     t.integer "collector_id"
+    t.string "image"
   end
 
 end
-
-

@@ -17,6 +17,7 @@ class ApplicationController < Sinatra::Base
       collector.to_json(include: :records)
     else 
       "404: Page not found"
+    end
   end
 
 end
