@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/collectors" do 
-    collectors = Collector.all
+    collectors = Collector.all.sort_by(&:name)
     collectors.to_json
   end
 
