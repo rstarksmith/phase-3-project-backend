@@ -21,4 +21,9 @@ class ApplicationController < Sinatra::Base
     collector.to_json
   end
 
+  # delete "/collectors/:id" do
+  #   collector = Collector.find_by(id: params[:id])
+  #   collector.destroy
+  # end
+
 end
