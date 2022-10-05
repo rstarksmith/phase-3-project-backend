@@ -1,7 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-
   get "/collectors" do 
     collectors = Collector.alpha
     collectors.to_json
@@ -22,7 +21,7 @@ class ApplicationController < Sinatra::Base
     collector.destroy.to_json
   end
 
-  #works backend, checked postman
+  #working, checked postman
   post "/records" do
     record = Record.create(
         artist: params[:artist], 
@@ -34,6 +33,23 @@ class ApplicationController < Sinatra::Base
         year: params[:year], 
         collector_id: params[:collector_id], 
         image: params[:image]
+    )
+    record.to_json
+  end
+
+  #works, tested in postman
+  patch "/records/:id" do
+    record = Record.find_by(id: params[:id])
+    record.update(
+      artist: params[:artist], 
+      title: params[:title], 
+      format: params[:format], 
+      media_condition: params[:media_condition], 
+      sleeve_condition: params[:sleeve_condition], 
+      label: params[:label], 
+      year: params[:year], 
+      collector_id: params[:collector_id], 
+      image: params[:image]
     )
     record.to_json
   end
