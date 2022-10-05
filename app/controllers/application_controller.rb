@@ -3,17 +3,13 @@ class ApplicationController < Sinatra::Base
   
 
   get "/collectors" do 
-    collectors = Collector.all.sort_by(&:name)
+    collectors = Collector.alpha
     collectors.to_json
   end
 
   get "/collectors/:id" do
     collector = Collector.find_by(id: params[:id])
-    if collector
-      collector.to_json(include: :records)
-    else 
-      "404: Page not found"
-    end
+    collector.to_json(include: :records)
   end
 
   post "/collectors" do
@@ -21,9 +17,30 @@ class ApplicationController < Sinatra::Base
     collector.to_json
   end
 
-  # delete "/collectors/:id" do
-  #   collector = Collector.find_by(id: params[:id])
-  #   collector.destroy
-  # end
+  delete "/collectors/:id" do
+    collector = Collector.find_by(id: params[:id])
+    collector.destroy.to_json
+  end
+
+  #works backend, checked postman
+  post "/records" do
+    record = Record.create(
+        artist: params[:artist], 
+        title: params[:title], 
+        format: params[:format], 
+        media_condition: params[:media_condition], 
+        sleeve_condition: params[:sleeve_condition], 
+        label: params[:label], 
+        year: params[:year], 
+        collector_id: params[:collector_id], 
+        image: params[:image]
+    )
+    record.to_json
+  end
+
+  delete "/records/:id" do
+    record = Record.find_by(id: params[:id])
+    record.destroy.to_json
+  end
 
 end
