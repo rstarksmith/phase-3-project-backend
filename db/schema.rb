@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_06_041750) do
+ActiveRecord::Schema.define(version: 2022_10_06_172324) do
 
   create_table "collectors", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_10_06_041750) do
     t.string "label"
     t.integer "year"
     t.integer "collector_id"
-    t.string "image", default: "https://i.imgur.com/v9EFxoz.png"
+    t.string "image"
   end
 
 end
