@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
 
 
   get "/collectors/:id" do
-    collector = Collector.find_by(id: params[:id])
+    collector = Collector.find(params[:id])
     collector.to_json(include: :records)
   end
 
@@ -21,13 +21,13 @@ class ApplicationController < Sinatra::Base
 
 
   delete "/collectors/:id" do
-    collector = Collector.find_by(id: params[:id])
+    collector = Collector.find(params[:id])
     collector.destroy.to_json
   end
 
 
   get "/records/:id" do
-    record = Record.find_by(id: params[:id])
+    record = Record.find(params[:id])
     record.to_json
   end
 
@@ -66,7 +66,7 @@ class ApplicationController < Sinatra::Base
 
 
   delete "/records/:id" do
-    record = Record.find_by(id: params[:id])
+    record = Record.find(params[:id])
     record.destroy.to_json
   end
 
