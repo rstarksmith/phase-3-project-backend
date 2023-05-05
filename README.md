@@ -1,3 +1,4 @@
+<a href="https://imgur.com/cChA95R"><img src="https://i.imgur.com/cChA95R.png" title="source: imgur.com" /></a>
 # Fox Vinyl Record Collections - Backend
 Fox Vinyl Record Collections helps the user keep track of their collection inventory and allows them to share their collection. User can browse other collectors inventory. 
 

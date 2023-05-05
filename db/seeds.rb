@@ -1,7 +1,8 @@
-puts "🌱 Seeding spices..."
 
 Record.destroy_all
 Collector.destroy_all
+
+puts "🌱 Seeding spices..."
 
 rachel = Collector.create(name: "Rachel Swinn")
 brooke = Collector.create(name: "Brooke Lilly")
